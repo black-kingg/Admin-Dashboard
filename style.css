@@ -24,6 +24,15 @@
 --box-shadow: 0 2rem 3rem var(--color-light);
 }
 
+.dark-theme-variables{
+    --color-background: #181a1e;
+    --color-white: #202528;
+    --color-dark: #edeffd;
+    --color-dark-variant: #e3bdcc;
+    --color-light: rgb(0, 0, 0, 0.4);
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -190,7 +199,7 @@ aside .sidebar a:last-child{
 }
 
 aside .sidebar a.active{
-    background-color: var(--color-light);
+    background: var(--color-light);
     color: var(--color-primary);
     margin-left: 0;
 }
@@ -355,7 +364,7 @@ main .recent-orders h2{
 }
 
 main .recent-orders table{
-    background: white;
+    background: var(--color-white);
     width: 100%;
     border-radius: var(--card-border-radius);
     padding: var(--card-padding);
@@ -570,10 +579,11 @@ margin-top: 1.4rem;
 @media screen and (max-width:768px) {
     .container{
         width: 100%;
+        grid-template-columns: 1fr;
     }
     aside{
         position: fixed;
-        left: 0;
+        left: -100%;
         background: var(--color-white);
         width: 18rem;
         z-index: 3;
@@ -581,7 +591,15 @@ margin-top: 1.4rem;
         height: 100vh;
         padding-right: var(--card-padding);
         display: none;
+        animation: showMenu 400ms ease forwards;
     }
+
+    @keyframes showMenu {
+        to{
+            left: 0;
+        }
+    }
+
     aside .logo{
         margin-left: 1rem;
     }
@@ -629,6 +647,7 @@ margin-top: 1.4rem;
         padding: 0 0.8rem;
         height: 4.6rem;
         background: var(--color-white);
+        width: 100%;
         margin: 0;
         z-index: 2;
         box-shadow: 0 1rem 1rem var(--color-light);
